@@ -27,3 +27,11 @@ target
 /soapui.log
 
 *.versionsBackup
+
+.project
+.settings
+.classpath
+
+*~
+
+

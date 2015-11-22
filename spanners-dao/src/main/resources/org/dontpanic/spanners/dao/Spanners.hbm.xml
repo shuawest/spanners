@@ -5,13 +5,15 @@
 
 <hibernate-mapping package="org.dontpanic.spanners.dao">
 
-    <class name="Spanner" table="spanner">
-        <id name="id">
-            <generator class="native"/>
-        </id>
-        <property name="name" unique="true"/>
-        <property name="size"/>
-        <property name="owner"/>
-    </class>
+	<class name="Spanner" table="spanner">
+		<id name="id" type="int" column="spanner_id">
+			<generator class="sequence">
+				<param name="sequence">spanner_id_seq</param>
+			</generator>
+		</id>
+		<property name="name" unique="true" type="string" column="spanner_name" />
+		<property name="size" type="int"  column="spanner_size" />
+		<property name="owner" type="string" column="spanner_owner" />
+	</class>
 
 </hibernate-mapping>

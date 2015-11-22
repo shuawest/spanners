@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <spanner id="1" name="Hazell" size="12" owner="smith"/>
-    <spanner id="2" name="Kitty" size="18" owner="jones"/>
+    <spanner spanner_id="1" spanner_name="Hazell" spanner_size="12" spanner_owner="smith"/>
+    <spanner spanner_id="2" spanner_name="Kitty" spanner_size="18" spanner_owner="jones"/>
 </dataset>
