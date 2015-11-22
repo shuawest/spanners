@@ -38,8 +38,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		appServlet.setAsyncSupported(true);
 		
 		Set<String> mappingConflicts = appServlet.addMapping("/");
-		if (!mappingConflicts.isEmpty()) {
-			throw new IllegalStateException("'appServlet' cannot be mapped to '/' under Tomcat versions <= 7.0.14");
-		}
+		//if (!mappingConflicts.isEmpty()) {
+		//	throw new IllegalStateException("'appServlet' cannot be mapped to '/' under Tomcat versions <= 7.0.14");
+		//}
 	}
 }

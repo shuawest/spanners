@@ -6,7 +6,10 @@
 
     <bean id="spannersDS" class="org.springframework.jndi.JndiObjectFactoryBean"
           p:proxyInterface="javax.sql.DataSource"
-          p:jndiName="java:comp/env/jdbc/Spanners"/>
+          p:jndiName="java:jboss/datasources/spanners"
+          />
+          
+<!--           p:jndiName="java:comp/env/jdbc/Spanners" -->
     
     <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="properties">

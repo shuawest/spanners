@@ -1,0 +1,26 @@
+
+# copy the etc/oracle directory to the $JBOSS_HOME/modules/system/layers/base directory first
+
+/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle,driver-xa-datasource-class-name=oracle.jdbc.xa.client.OracleXADataSource)
+
+xa-data-source add --name=spanners --jndi-name="java:jboss/datasources/spanners" --driver-name=oracle
+
+cd /subsystem=datasources/xa-data-source=spanners/
+
+:write-attribute(name=same-rm-override,value=false)
+:write-attribute(name=no-tx-separate-pool,value=true)
+:write-attribute(name=valid-connection-checker-class-name,value=org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker)
+:write-attribute(name=stale-connection-checker-class-name,value=org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker)
+:write-attribute(name=exception-sorter-class-name,value=org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter)
+
+:write-attribute(name=user-name,value=spanners)
+:write-attribute(name=password,value=password)
+
+/subsystem=datasources/xa-data-source=spanners/xa-datasource-properties=URL:add(value=jdbc:oracle:thin:@oracleHost:1521:XE)
+
+cd /
+
+xa-data-source enable --name=spanners
+
+/subsystem=naming/binding="java:comp/env/jdbc/Spanners":add(binding-type=lookup, lookup="java:jboss/datasources/spanners")
+

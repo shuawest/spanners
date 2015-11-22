@@ -12,7 +12,6 @@ RUN unzip -q ${tomcat_name}.zip && mv ${tomcat_name} tomcat && chmod u+x tomcat/
 COPY ojdbc6.jar /opt/rh/bpms/tomcat/lib/ojdbc6.jar
 COPY tomcat-users.xml /opt/rh/bpms/tomcat/conf/tomcat-users.xml
 COPY context.xml /opt/rh/bpms/tomcat/conf/context.xml
-COPY setenv.sh /opt/rh/bpms/tomcat/bin/setenv.sh
 COPY ${spanners_name}.war /opt/rh/bpms/tomcat/webapps/${spanners_name}.war
 
 EXPOSE 8080 8009 8005
